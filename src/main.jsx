@@ -43,14 +43,18 @@ const router = createBrowserRouter([
   },
   {
     path:'my-trips',
-    element:<MyTrips/>
+    element: (
+      <>
+        <Header />
+        <MyTrips/>
+      </>
+    )
   }
 ])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <GoogleOAuthProvider clientId={CLIENT_ID}>
-      
       <Toaster />
       <RouterProvider router={router} />
     </GoogleOAuthProvider>
