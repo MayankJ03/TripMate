@@ -19,7 +19,12 @@ function Header() {
 
     const login = useGoogleLogin({
         onSuccess: (codeResponse) => getUserProfile(codeResponse),
-        onError: (error) => console.log('Login Failed:', error),
+        onError: (error) => {
+            console.log('Login Failed:', error);
+            console.log('Current URL:', window.location.href);
+            console.log('Origin:', window.location.origin);
+        },
+        flow: 'implicit'
     });
 
     const getUserProfile = async (tokenInfo) => {
