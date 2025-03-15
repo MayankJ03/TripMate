@@ -24,7 +24,11 @@ function Header() {
             console.log('Current URL:', window.location.href);
             console.log('Origin:', window.location.origin);
         },
-        flow: 'implicit'
+        flow: 'implicit',
+        scope: 'email profile',
+        ux_mode: 'popup',
+        auto_select: false,
+        redirect_uri: 'https://trip-mate-eta.vercel.app'
     });
 
     const getUserProfile = async (tokenInfo) => {

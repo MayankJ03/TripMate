@@ -11,6 +11,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google'
 import Viewtrip from './view-trip/[tripId]'
 import MyTrips from './my-trips'
 
+// Forcing new Vercel deployment - [current timestamp]
 const CLIENT_ID = "860312378520-golfksgpeuhs04ji05pl7vi8crv0ooml.apps.googleusercontent.com";
 
 const router = createBrowserRouter([
@@ -54,7 +55,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <GoogleOAuthProvider clientId={CLIENT_ID}>
+    <GoogleOAuthProvider 
+      clientId={CLIENT_ID}
+      onScriptLoadSuccess={() => console.log('Google OAuth Script loaded successfully')}
+      onScriptLoadError={(error) => console.error('Google OAuth Script load error:', error)}
+    >
       <Toaster />
       <RouterProvider router={router} />
     </GoogleOAuthProvider>
