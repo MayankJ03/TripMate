@@ -83,7 +83,7 @@ function CreateTrip() {
         },
       })
       .then((resp) => {
-        console.log(resp);
+        console.log("OAuth response:", resp);
         localStorage.setItem("user", JSON.stringify(resp.data));
         setUser(resp.data);
         console.log("Closing dialog");
@@ -92,7 +92,13 @@ function CreateTrip() {
       })
       .catch((error) => {
         console.error("Error fetching user profile:", error);
-        toast.error("Failed to sign in. Please try again.");
+        if (error.response?.status === 401) {
+          toast.error("Authentication failed. Please try signing in again.");
+        } else if (error.response?.status === 400) {
+          toast.error("Invalid request. Please check your Google OAuth configuration.");
+        } else {
+          toast.error("Failed to sign in. Please try again.");
+        }
       });
   };
 

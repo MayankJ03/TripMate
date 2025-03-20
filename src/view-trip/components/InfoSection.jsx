@@ -7,7 +7,7 @@ function InfoSection({ trip }) {
     const [photos, setPhotos] = useState([]);
 
     useEffect(() => {
-        trip && GetPlacePhoto();
+    trip && GetPlacePhoto();
     }, [trip]);
 
     const GetPlacePhoto = async () => {
@@ -92,7 +92,7 @@ function InfoSection({ trip }) {
         });
     };
 
-    return (
+  return (
         <div className="space-y-6">
             {/* Hero section with main image */}
             <div className="relative rounded-xl overflow-hidden">
@@ -113,22 +113,22 @@ function InfoSection({ trip }) {
                         <span className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm">
                             👥 {trip?.userSelection?.traveler} Travelers
                         </span>
-                    </div>
-                </div>
-                <Button 
+          </div>
+        </div>
+        <Button 
                     onClick={shareOnWhatsApp} 
                     className="absolute top-4 right-4 rounded-full p-3 bg-white/20 backdrop-blur-sm hover:bg-white/30"
-                >
+        >
                     <IoIosSend className="h-5 w-5 text-white" />
-                </Button>
-            </div>
+        </Button>
+      </div>
 
             {/* Itinerary section */}
             <div className="bg-gray-50 rounded-xl p-6">
                 <h2 className="text-2xl font-bold mb-6">Your Itinerary</h2>
                 {renderItinerary()}
             </div>
-        </div>
+    </div>
     );
 }
 

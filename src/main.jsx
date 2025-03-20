@@ -12,7 +12,7 @@ import Viewtrip from './view-trip/[tripId]'
 import MyTrips from './my-trips'
 
 // Forcing new Vercel deployment - [current timestamp]
-const CLIENT_ID = "860312378520-golfksgpeuhs04ji05pl7vi8crv0ooml.apps.googleusercontent.com";
+const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 const router = createBrowserRouter([
   {
