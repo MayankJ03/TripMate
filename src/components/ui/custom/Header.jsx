@@ -82,7 +82,6 @@ function Header() {
                         >
                             Create Trip
                         </Button>
-                        <a href='/my-trips'>
                         <Button
                             variant="outline"
                             onClick={() => navigate('/my-trips')}
@@ -90,7 +89,6 @@ function Header() {
                         >
                             My Trips
                         </Button>
-                        </a>
                         <Button
                             variant="outline"
                             onClick={handleSignOut}

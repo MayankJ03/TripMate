@@ -26,22 +26,30 @@ function MyTrips() {
         setLoading(true);
         try {
             const user = JSON.parse(localStorage.getItem('user'));
+            console.log("Current user:", user);
+            
             if (!user) {
+                console.log("No user found, redirecting to home");
                 navigate('/');
                 return;
             }
             setUserTrips([]);
 
+            console.log("Fetching trips for email:", user?.email);
             const q = query(collection(db, "AITrips"), where("userEmail", "==", user?.email));
             const querySnapshot = await getDocs(q);
+            
             const trips = [];
             querySnapshot.forEach((doc) => {
+                console.log("Found trip:", doc.id, doc.data());
                 trips.push({ ...doc.data(), id: doc.id });
             });
+            
+            console.log("Total trips found:", trips.length);
             setUserTrips(trips);
         } catch (error) {
             console.error("Error fetching trips:", error);
-            toast.error("Failed to load trips");
+            toast.error("Failed to load trips. Error: " + error.message);
         } finally {
             setLoading(false);
         }

@@ -1,0 +1,5 @@
+[33m8509883[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Initial commit
+[33md0c2e24[m Force new Vercel deployment
+[33m7abb580[m Added debug logging for OAuth redirect
+[33ma4372d3[m Updated router configuration with Header for MyTrips
+[33ma5c927e[m Intitial Commit
